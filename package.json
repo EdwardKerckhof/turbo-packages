@@ -1,0 +1,40 @@
+{
+  "name": "turbo-boilerplate",
+  "version": "0.0.0",
+  "description": "Boilerplate for fullstack application",
+  "author": {
+    "name": "Edward Kerckhof",
+    "email": "edwardkerckhof@hotmail.com"
+  },
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "dev:prepare": "turbo run dev:prepare --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{js,ts,jsx,tsx,md,vue,json,yml}\"",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build --filter=docs^... && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.25.2",
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "eslint": "^8.29.0",
+    "eslint-config-bp": "*",
+    "prettier": "latest",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {},
+  "packageManager": "yarn@1.22.17"
+}
